@@ -6,8 +6,9 @@ import { StarFill } from 'react-bootstrap-icons';
 import ReviewList from './ReviewList';
 import { useState, useEffect } from 'react';
 import { MovieContext } from "./MovieContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import AddToListButton from './AddToListButton';
+import RatingBarGraph from './RatingBarGraph';
 
 
 const MovieInfo = ({ movie }) => {
@@ -27,7 +28,7 @@ const MovieInfo = ({ movie }) => {
       } else if (listType === "wantToWatch") {
         addToWantToWatch(movie);
       }
-      // history.push("/lists");
+      history.push("/lists");
     };
 
   if (!movie) {
@@ -48,7 +49,7 @@ const MovieInfo = ({ movie }) => {
           <Col md={4}>
             <Image src={require(`./posters/${movie.poster}.jpg`)} rounded className="movie-poster" />
             <div className="rating-section">
-              <p>FlicSurf Rating: <strong>{movie.rating} <StarFill color="gold" size={20}/></strong></p>
+            <Link to={`/ratings/${movie.id}`}><p>FlicSurf Rating: <strong>{movie.rating} <StarFill color="gold" size={20}/></strong></p></Link>
               <StarRatingButton />
               <br />
             </div>

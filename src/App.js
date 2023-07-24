@@ -9,6 +9,8 @@ import { getMovieById } from "./utils";
 import { getShowById } from "./utils";
 import Shows from './Shows';
 import Lists from './Lists';
+import RatingBarGraph from './RatingBarGraph';
+import QuizPage from './QuizPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -59,6 +61,26 @@ function App() {
             />
             <Route exact path="/lists">
               <Lists />
+            </Route>
+            <Route
+              path="/ratings/:id"
+              render={(props) => {
+                const movieId = props.match.params.id;
+                const movie = getMovieById(movieId); // Modify this function based on your data source
+                return <RatingBarGraph movie={movie} />;
+              }}
+            />
+            <Route
+              path="/showratings/:id"
+              render={(props) => {
+                const movieId = props.match.params.id;
+                const movie = getShowById(movieId); // Modify this function based on your data source
+                return <RatingBarGraph movie={movie} />;
+              }}
+            />
+            
+            <Route exact path="/quiz">
+              <QuizPage />
             </Route>
           </Switch>
 

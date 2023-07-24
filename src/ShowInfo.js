@@ -5,6 +5,7 @@ import StarRatingButton from './StarRatingButton';
 import { StarFill } from 'react-bootstrap-icons';
 import ReviewList from './ReviewList';
 import { useState, useEffect } from 'react';
+import { useHistory, Link } from "react-router-dom";
 
 const ShowInfo = ({ movie }) => {
     const [reviews, setReviews] = useState([
@@ -31,7 +32,7 @@ const ShowInfo = ({ movie }) => {
           <Col md={4}>
             <Image src={require(`./posters/${movie.poster}.jpg`)} rounded className="movie-poster" />
             <div className="rating-section">
-              <p>FlicSurf Rating: <strong>{movie.rating} <StarFill color="gold" size={20}/></strong></p>
+            <Link to={`/showratings/${movie.id}`}><p>FlicSurf Rating: <strong>{movie.rating} <StarFill color="gold" size={20}/></strong></p></Link>
               <StarRatingButton />
               <br />
             </div>
