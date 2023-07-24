@@ -1,0 +1,35 @@
+.star-rating-button {
+    position: relative;
+}
+  
+.rate-button {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    padding: 0;
+}
+  
+.star-icon {
+    font-size: 20px;
+    cursor: pointer;
+    fill: #007bff;
+}
+  
+.star-icon.filled {
+    fill: #007bff;
+    
+}
+  
+.rating-popover {
+    position: absolute;
+    bottom: 40px; 
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999; 
+}
